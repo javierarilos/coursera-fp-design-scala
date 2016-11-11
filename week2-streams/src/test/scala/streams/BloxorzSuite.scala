@@ -37,6 +37,26 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
+
+  test("newNeighborsOnly test") {
+    new Level1 {
+      def newNeighborsResult = newNeighborsOnly(
+        Set(
+          (Block(Pos(1, 2), Pos(1, 3)), List(Right, Left, Up)),
+          (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
+        ).toStream,
+
+        Set(Block(Pos(1, 2), Pos(1, 3)), Block(Pos(1, 1), Pos(1, 1)))
+      )
+
+      def newNeighborsExpected = Set(
+        (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
+      ).toStream
+
+      assert(newNeighborsExpected == newNeighborsResult)
+    }
+  }
+
   trait Level1 extends SolutionChecker {
     /* terrain for level 1*/
 
@@ -53,7 +73,6 @@ class BloxorzSuite extends FunSuite {
     )
     val optsolution = List(Right, Right, Down, Right, Right, Right, Down)
   }
-
 
 
   test("terrain function level 1") {
