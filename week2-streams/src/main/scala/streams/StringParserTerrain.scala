@@ -56,7 +56,7 @@ trait StringParserTerrain extends GameDef {
     (pos: Pos) =>{
       def validRow = 0 <= pos.row && pos.row < levelVector.length
       def validCol = 0 <= pos.col && pos.col < levelVector(0).length
-      validCol && validRow && (pos.col) != '-'
+      validCol && validRow && levelVector(pos.row)(pos.col) != '-'
     }
   }
 

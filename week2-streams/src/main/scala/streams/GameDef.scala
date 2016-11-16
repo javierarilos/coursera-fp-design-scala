@@ -87,6 +87,7 @@ trait GameDef {
    * the game.
    */
   def startBlock: Block = Block(startPos, startPos)
+  def goalBlock: Block = Block(goal, goal)
 
 
   /**
